@@ -15,15 +15,27 @@ package chapter04stacks;
 import java.util.Stack;
 
 public class SortingStack {
-    public static Stack<Integer> sort(Stack<Integer> stk) {
-        Stack<Integer> rstk = new Stack<Integer>();
-        while(!stk.isEmpty()){
-            int tmp = stk.pop();
-            while(!rstk.isEmpty() && rstk.peek() > tmp){
-                stk.push(rstk.pop());
-            }
-            rstk.push(tmp);
-        }
-        return rstk;
-    }
+	public static Stack<Integer> sort(Stack<Integer> stk) {
+		Stack<Integer> rstk = new Stack<Integer>();
+		while (!stk.isEmpty()) {
+			int tmp = stk.pop();
+			while (!rstk.isEmpty() && rstk.peek() > tmp) {
+				stk.push(rstk.pop());
+			}
+			rstk.push(tmp);
+		}
+		return rstk;
+	}
+
+	public static void main(String[] args) {
+
+		Stack<Integer> rstk = new Stack<Integer>();
+		rstk.push(5);
+		rstk.push(2);
+		rstk.push(1);
+		rstk.push(6);
+		Stack<Integer> out = sort(rstk);
+		System.out.println(out.toString());
+
+	}
 }

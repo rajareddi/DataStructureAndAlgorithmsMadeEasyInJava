@@ -7,7 +7,7 @@
  * Warranty         	: This software is provided "as is" without any 
  * 							warranty; without even the implied warranty of 
  * 							merchantability or fitness for a particular purpose. 
- * 
+ * https://docs.servicenow.com/bundle/helsinki-release-notes/page/release-notes/r_Helsinki-Patch-2.html
  */
 
 package chapter05queues;
