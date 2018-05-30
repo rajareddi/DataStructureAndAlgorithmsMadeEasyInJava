@@ -23,7 +23,10 @@ public class ContainOpp {
 		boolean isU = snowTableName.contains(urlpatther);
 		System.out.println(isU);
 		ContainOpp containOpp= new ContainOpp();
-		System.out.println(containOpp);
+		ContainOpp containOpp2= new ContainOpp();
+		System.out.println(containOpp.toString());
+		System.out.println(containOpp2.toString());
+		System.out.println(Integer.toHexString(100));
 	}
 
 	public void display(int i, String str) {
@@ -33,4 +36,12 @@ public class ContainOpp {
 	public void display(String str, int i) {
 		System.out.println();
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	
+	
 }
+
