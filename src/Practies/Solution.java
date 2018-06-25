@@ -19,7 +19,7 @@ import java.text.*;
 import java.util.*;
 import java.util.regex.*;
 
-public class TimeConversion {
+public class Solution {
 
 	/*
 	 * Complete the timeConversion function below.

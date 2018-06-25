@@ -46,7 +46,7 @@ public class Threadexample {
 				synchronized (this) {
 					while (list.size() == capacity) {
 						try {
-							wait();
+						wait();
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

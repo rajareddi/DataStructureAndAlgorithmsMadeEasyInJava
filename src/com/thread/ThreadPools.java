@@ -13,8 +13,10 @@
 
 package com.thread;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 class Processer implements Runnable {
@@ -24,13 +26,19 @@ class Processer implements Runnable {
 		this.id = id;
 	}
 
+	/**
+	 * //https://dzone.com/articles/threads-top-80-interview
+	 */
 	@Override
 	public void run() {
 
 		System.out.println("starting id " + id);
 		try {
+			if (id % 2 == 0) {
+				throw new Exception("Exception while processing the data {}" + id);
+			}
 			Thread.sleep(5000);
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		System.out.println("Ending id " + id);
@@ -43,15 +51,21 @@ public class ThreadPools {
 	public static void main(String[] args) {
 
 		ExecutorService executor = Executors.newFixedThreadPool(1);
+		ArrayList list = new ArrayList<>();
 		for (int i = 0; i < 5; i++) {
-			executor.submit(new Processer(i));
+			Future result = executor.submit(new Processer(i));
+			list.add(result);
 		}
 		executor.shutdown();
+
 		try {
 			executor.awaitTermination(1, TimeUnit.DAYS);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(" result " + list.get(i).toString());
 		}
 
 	}
